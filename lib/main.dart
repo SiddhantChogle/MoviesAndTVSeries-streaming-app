@@ -8,8 +8,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Video Streaming App",
-      home: StreamingAppHomePage(),
+      home: NavScreen(),
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.grey[900],
         primaryColor: Colors.black,
       ),
       debugShowCheckedModeBanner: false,
