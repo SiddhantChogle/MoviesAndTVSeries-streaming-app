@@ -1,6 +1,6 @@
 # Movies and TV Shows Streaming App
 
-A videos streaming app UI inspired by popular app Netflix. A clean and slick app in dark mode. Learned data manipulation and state management concepts.
+A videos streaming app UI inspired by popular app Netflix. A clean and slick app UI in dark mode. Learnt data manipulation and state management.
 
 ## Description
 
