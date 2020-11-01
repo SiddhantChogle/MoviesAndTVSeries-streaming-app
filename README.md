@@ -1,16 +1,42 @@
-# video_streaming_app
+# Movies and TV Shows Streaming App
 
-A new Flutter project.
+A videos streaming app UI inspired by popular app Netflix. A clean and slick app in dark mode. Learned data manipulation and state management concepts.
 
-## Getting Started
+## Description
 
-This project is a starting point for a Flutter application.
+This is a UI of Videos Streaming app were you can watch Movies and TV Shows. It has a Carousel slider of popular Movies and TV Shows of the day. Contains a list of Trending Movies and TV Show of the week along with list of Movies and TV Shows to watch. Clicking on any of these contents opens a page which contain Details about that Movie/TV Show.
 
-A few resources to get you started if this is your first Flutter project:
+## ScreenShots 📷
+
+<img src = "screenshots/device-2020-11-01-222100.png" height="600"> <img src ="screenshots/device-2020-11-01-222310.png" height="600"> <img src = "screenshots/device-2020-11-01-222143.png" height="600">
+
+## Technology Stack and Others
+
+- Flutter
+  - http: ^0.12.2
+  - carousel_slider: ^2.3.1
+- The Movie Database (TMDb) API
+- VS Code
+
+## Resourses
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
+- [Development: Data & backend](https://flutter.dev/docs/development/data-and-backend)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- [Online Documentation](https://flutter.dev/docs)
+- [Marcus Ng](https://www.youtube.com/channel/UC6Dy0rQ6zDnQuHQ1EeErGUA)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## My Notes
+
+Colors.black.withOpacity((scrollOffset / 230).clamp(0, 1).toDouble())
+**TODO:** Other Content Pages, Build BottomNav Screens.
+
+## Contributors
+
+**Maintainer:** [Siddhant Chogle](https://github.com/SiddhantChogle)
+
+## License
+
+Project is published under the [MIT license](/LICENSE.md).
+
+Feel free to ⭐ and fork Repo to modify/bug fix/improve the code as you want.
