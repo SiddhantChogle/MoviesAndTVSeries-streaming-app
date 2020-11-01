@@ -5,6 +5,8 @@ import 'package:http/http.dart' as http;
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:video_streaming_app/widgets/widgets.dart';
 
+import 'pages.dart';
+
 class StreamingAppHomePage extends StatefulWidget {
   StreamingAppHomePage({Key key}) : super(key: key);
 
@@ -77,7 +79,7 @@ class _StreamingAppHomePageState extends State<StreamingAppHomePage> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Image(
-          height: 75,
+          height: 70.0,
           image: AssetImage(
             "lib/assets/images/netflixImage.png",
           ),
@@ -105,7 +107,7 @@ class _StreamingAppHomePageState extends State<StreamingAppHomePage> {
                 SliverToBoxAdapter(
                   child: CarouselSlider(
                     options: CarouselOptions(
-                      height: screenSize.height * 0.4,
+                      height: screenSize.height * 0.42,
                       viewportFraction: 1.0,
                       autoPlay: true,
                       autoPlayInterval: Duration(seconds: 5),
@@ -121,59 +123,72 @@ class _StreamingAppHomePageState extends State<StreamingAppHomePage> {
                       (i) {
                         return Builder(
                           builder: (BuildContext context) {
-                            return Stack(
-                              children: [
-                                Container(
-                                  width: MediaQuery.of(context).size.width,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      alignment: Alignment.bottomCenter,
-                                      fit: BoxFit.cover,
-                                      image: NetworkImage(
-                                          imageInitialUrl + i["backdrop_path"]),
+                            return GestureDetector(
+                              onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => ContentPage(
+                                    content: i,
+                                  ),
+                                ),
+                              ),
+                              child: Stack(
+                                children: [
+                                  Hero(
+                                    tag: imageInitialUrl + i["backdrop_path"],
+                                    child: Container(
+                                      width: MediaQuery.of(context).size.width,
+                                      decoration: BoxDecoration(
+                                        image: DecorationImage(
+                                          alignment: Alignment.bottomCenter,
+                                          fit: BoxFit.cover,
+                                          image: NetworkImage(imageInitialUrl +
+                                              i["backdrop_path"]),
+                                        ),
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Container(
-                                  child: Align(
-                                    alignment: Alignment.bottomLeft,
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                          vertical: 30.0, horizontal: 15.0),
+                                  Container(
+                                    child: Align(
+                                      alignment: Alignment.bottomLeft,
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 30.0, horizontal: 15.0),
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Container(
-                                  decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                        colors: [
-                                          Colors.transparent,
-                                          Colors.transparent,
-                                          Colors.black54,
-                                        ],
-                                        begin: Alignment.topCenter,
-                                        end: Alignment.bottomCenter),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                          colors: [
+                                            Colors.transparent,
+                                            Colors.transparent,
+                                            Colors.black54,
+                                          ],
+                                          begin: Alignment.topCenter,
+                                          end: Alignment.bottomCenter),
+                                    ),
                                   ),
-                                ),
-                                Positioned(
-                                  bottom: 30.0,
-                                  left: 20.0,
-                                  child: Container(
-                                    child: i["title"] == null
-                                        ? SizedBox()
-                                        : Text(
-                                            i["title"],
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 24.0,
+                                  Positioned(
+                                    bottom: 30.0,
+                                    left: 20.0,
+                                    child: Container(
+                                      child: i["title"] == null
+                                          ? SizedBox()
+                                          : Text(
+                                              i["title"],
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 25.0,
+                                              ),
+                                              overflow: TextOverflow.fade,
+                                              maxLines: 1,
+                                              softWrap: false,
                                             ),
-                                            overflow: TextOverflow.fade,
-                                            maxLines: 1,
-                                            softWrap: false,
-                                          ),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             );
                           },
                         );
